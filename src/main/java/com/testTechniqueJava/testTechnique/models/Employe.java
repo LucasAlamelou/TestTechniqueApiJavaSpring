@@ -1,5 +1,7 @@
 package com.testTechniqueJava.testTechnique.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,7 +37,10 @@ public class Employe {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
     @ManyToOne
+    @JsonIdentityInfo(
+            generator = ObjectIdGenerators.PropertyGenerator.class,
+            property = "idMagasin"
+    ) // gère la boucle infini de fetch entre table
     @JoinColumn(name = "magasin_id",referencedColumnName = "magasin_id")
     private Magasin magasin;
-
 }

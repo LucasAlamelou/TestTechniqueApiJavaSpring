@@ -17,8 +17,8 @@ public class MaterielController {
         return materielService.create(materiel);
     }
     @DeleteMapping("/delete-materiel-by-id")
-    public String delete(@RequestBody Integer idMateriel){
-        return materielService.delete(idMateriel);
+    public String delete(@RequestBody Materiel materiel){
+        return materielService.delete(materiel.getIdMateriel());
     }
     @PutMapping("/modify-materiel-by-id")
     public Materiel modify(@RequestBody Materiel materiel){

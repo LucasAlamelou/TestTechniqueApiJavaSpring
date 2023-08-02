@@ -4,8 +4,12 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "materiel")
@@ -41,4 +45,7 @@ public class Materiel {
     @JoinColumn(name="categorie_id", nullable = false, referencedColumnName="categorie_id",  columnDefinition= "integer")
     private Categorie categorie;
 
+    @OneToMany(targetEntity = Inventaire.class, fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SELECT)
+    private List<Inventaire> inventaires = new ArrayList<>();
 }

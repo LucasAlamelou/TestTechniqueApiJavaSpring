@@ -53,8 +53,8 @@ public class InventaireServiceImpl implements InventaireService{
     }
 
     @Override
-    public String delete(Long id) {
-        inventaireRepository.deleteById(id);
+    public String delete(Integer id) {
+        inventaireRepository.deleteById(id.longValue());
         return "Materiel id : "+ id + " supprimé" ;
     }
     //@Query(value = "SELECT Materiel.nom, (SELECT COUNT(*) FROM Inventaire i WHERE i.materiel.idMateriel = m.idMateriel) AS total FROM Materiel m")

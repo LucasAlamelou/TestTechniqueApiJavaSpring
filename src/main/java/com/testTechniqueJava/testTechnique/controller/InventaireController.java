@@ -18,8 +18,8 @@ public class InventaireController {
         return inventaireService.create(inventaire);
     }
     @DeleteMapping("/delete-inventaire-by-id")
-    public String delete(@RequestBody Long idInventaire){
-        return inventaireService.delete(idInventaire);
+    public String delete(@RequestBody Inventaire inventaire){
+        return inventaireService.delete(inventaire.getIdInventaire());
     }
     @PutMapping("/modify-inventaire-by-id")
     public Inventaire modify(@RequestBody Inventaire inventaire){

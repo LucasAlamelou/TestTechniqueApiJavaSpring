@@ -9,7 +9,7 @@ public interface InventaireService {
     Inventaire create(Inventaire inventaire);
     List<Inventaire> listMateriel();
     Inventaire modify(Integer id, Inventaire inventaire);
-    String delete(Long id);
+    String delete(Integer id);
 
     List<MaterielInventaireDTO> countInventaire();
 }
